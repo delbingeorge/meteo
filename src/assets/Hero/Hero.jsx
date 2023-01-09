@@ -14,7 +14,6 @@ function Hero() {
     let d = new Date()
     const hours = d.getHours();
     const minutes = d.getMinutes();
-    console.log(minutes)
 
     const [query, setQuery] = useState('')
     const [weather, setWeather] = useState({})
@@ -37,9 +36,9 @@ function Hero() {
                     className={(typeof (weather.main) != "undefined") ?
                         (
                             (weather.main.temp > 16) ?
-                                ('bg-black w-full h-full bg-cover app flex items-end justify-between  hot') :
+                                ('bg-black w-full h-full bg-cover app flex items-end justify-between hot') :
                                 ('bg-black w-full h-full bg-cover app flex items-end  justify-between cold')
-                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between  default'}
+                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between default'}
 
                 // className={(weather.weather[0].main == "cloudy") ? ("bg-black w-4/6 h-full bg-cover app flex items-end cloudy") : ("bg-black w-4/6 h-full bg-cover app flex items-end hot")}
                 >
@@ -47,7 +46,7 @@ function Hero() {
                     {
                         (typeof (weather.main) != "undefined") ? (
                             <div className='text-white flex items-end pl-14 pb-14'>
-                                {/* <h1 className='text-4xl'>Goa,In</h1> */}
+
                                 <h1 className='text-8xl font-semibold'>{Math.round(weather.main.temp)}°C</h1>
                                 <div className='px-4'>
                                     <h1 className='text-5xl pb-1'>{weather.name}, {weather.sys.country}</h1>
@@ -93,12 +92,13 @@ function Hero() {
                             <h1 className='text-3xl text-white font-bold py-8 text-left'>Météo Weather App</h1>
                             <input
                                 type='text'
-                                className='w-full bg-transparent border-b-2 border-grey-100 capitalize outline-none border-slate-800 outline- text-xl text-gray-300 placeholder:text-xl py-2'
+                                className='w-full bg-transparent border-b-2 border-grey-100 capitalize outline-none border-slate-500 outline- text-xl text-gray-300 placeholder:text-xl py-2 placeholder:border-slate-500'
                                 onChange={e => setQuery(e.target.value)}
                                 onKeyDown={search}
                                 value={query}
                                 placeholder='enter city name here' />
                         </div>
+
                     </div>
                 </div>
             </main >
