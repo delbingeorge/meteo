@@ -68,7 +68,7 @@ function Hero() {
                                 {
                                     (weather.message) == "city not found" ?
                                         <h1 className='text-2xl font-bold'>No city found!</h1> :
-                                        <h1>About Me : <a href='delb.in'>Delbin George</a></h1>}
+                                        <h1>About Me : <a href='https://www.delb.in'>Delbin George</a></h1>}
                             </div>
                         )
                     }
