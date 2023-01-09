@@ -19,7 +19,7 @@ function Hero() {
     const [weather, setWeather] = useState({})
 
     const search = event => {
-        if (event.key == "Enter") {
+        if (event.key === "Enter") {
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&appid=${api.key}`)
                 .then(res => res.json())
                 .then(result => {
@@ -77,7 +77,7 @@ function Hero() {
                                 {/* <h1 className='text-2xl font-semibold'>Search for a city</h1> */}
                                 {
                                     (weather.message) == "city not found" ?
-                                        <h1 className='text-2xl font-bold'>No city found!</h1> :
+                                        <h1 className='text-2xl'>No city found!</h1> :
                                         <div>
                                             <h1 className='text-3xl text-white font-bold text-left'>Météo Weather App</h1>
                                             <h2>Developed by <a href='https://www.delb.in'>Delbin George</a></h2>
@@ -97,8 +97,51 @@ function Hero() {
                                 onKeyDown={search}
                                 value={query}
                                 placeholder='enter city name here' />
-                        </div>
+                            <div className='text-slate-400 pt-12'>
+                                <h1 className=''>
+                                    Suggested Locations:
+                                </h1>
+                                <div className='pt-4 flex justify-between'>
+                                    <button
+                                        type='button'
+                                        className='bg-gray-900 px-8 text-center py-2 rounded-md'
+                                        value='Rose'
+                                        onClick=
+                                        {
+                                            event => {
+                                                setQuery(event.target.value)
+                                            }
+                                        }
+                                    >Rose
+                                    </button>
+                                    <button
+                                        type='button'
+                                        className='bg-gray-900 text-center px-8 py-2 rounded-md'
+                                        value='Kerala'
+                                        onClick=
+                                        {
+                                            event => {
+                                                setQuery(event.target.value)
+                                            }
+                                        }
+                                    >Kerala
+                                    </button>
+                                    <button
+                                        type='button'
+                                        className='bg-gray-900 text-center px-8 py-2 rounded-md'
+                                        value='Iceland'
+                                        onClick=
+                                        {
+                                            event => {
+                                                setQuery(event.target.value)
+                                            }
+                                        }
+                                    >Iceland
+                                    </button>
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </main >
