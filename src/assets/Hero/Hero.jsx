@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import sugPlace from './sugPlace';
 
 const api = {
     key: "38514dd0f5735e941fb56d4a952fd4d4",
@@ -28,24 +29,26 @@ function Hero() {
                 })
         }
     }
-
     return (
         <div className='hidden md:block'>
             <main className='h-screen flex'>
                 <div
                     className={(typeof (weather.main) != "undefined") ?
                         (
-                            (weather.main.temp > 16) ?
-                                ('bg-black w-full h-full bg-cover app flex items-end justify-between hot') :
+                            (weather.main.temp > 10) ?
+                                (
+                                    (weather.main.temp > 30) ?
+                                        ('bg-black w-full h-full bg-cover app flex items-end justify-between hotter') :
+                                        ('bg-black w-full h-full bg-cover app flex items-end justify-between rain')
+                                ) :
                                 ('bg-black w-full h-full bg-cover app flex items-end  justify-between cold')
-                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between default'}
+                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between default '}
 
                 // className={(weather.weather[0].main == "cloudy") ? ("bg-black w-4/6 h-full bg-cover app flex items-end cloudy") : ("bg-black w-4/6 h-full bg-cover app flex items-end hot")}
                 >
-
                     {
                         (typeof (weather.main) != "undefined") ? (
-                            <div className='text-white flex items-end pl-14 pb-14'>
+                            <div className='text-white flex items-center pl-14 pb-14'>
 
                                 <h1 className='text-8xl font-semibold'>{Math.round(weather.main.temp)}°C</h1>
                                 <div className='px-4'>
@@ -68,20 +71,21 @@ function Hero() {
                                                             ? "https://cdn-icons-png.flaticon.com/512/4005/4005817.png"
                                                             : weather.weather[0].main === "Thunderstorm"
                                                                 ? "https://cdn-icons-png.flaticon.com/512/1959/1959321.png"
-                                                                : ""} />
+                                                                : weather.weather[0].main === "Haze"
+                                                                    ? "https://cdn-icons-png.flaticon.com/512/1959/1959321.png"
+                                                                    : ""} />
                                     <h1 className='text-xl text-white'>{weather.weather[0].main}</h1>
                                 </div>
                             </div>
                         ) : (
                             <div className='text-white flex items-end pl-14 pb-14'>
-                                {/* <h1 className='text-2xl font-semibold'>Search for a city</h1> */}
                                 {
                                     (weather.message) == "city not found" ?
                                         <h1 className='text-2xl'>No city found!</h1> :
                                         <div>
                                             <h1 className='text-3xl text-white font-bold text-left'>Météo Weather App</h1>
-                                            <h2>Developed by <a href='https://www.delb.in'>Delbin George</a></h2>
-                                            <h3 className='text-sm'>API used <a href='https://openweathermap.org/api'>OpenWeatherMap</a></h3>
+                                            <h2>Developed by <a className='underline' href='https://www.delb.in'>Delbin George</a></h2>
+                                            <h3 className='text-sm'>API used <a className='underline' href='https://openweathermap.org/api'>OpenWeatherMap</a></h3>
                                         </div>
                                 }
                             </div>
@@ -97,47 +101,31 @@ function Hero() {
                                 onKeyDown={search}
                                 value={query}
                                 placeholder='enter city name here' />
-                            <div className='text-slate-400 pt-12'>
+                            <div className='text-slate-300 pt-12'>
                                 <h1 className=''>
-                                    Suggested Locations:
+                                    Suggested Locations:<button></button>
                                 </h1>
-                                <div className='pt-4 flex justify-between'>
-                                    <button
-                                        type='button'
-                                        className='bg-gray-900 px-8 text-center py-2 rounded-md'
-                                        value='Rose'
-                                        onClick=
-                                        {
-                                            event => {
-                                                setQuery(event.target.value)
+                                <div className='pt-4 flex flex-wrap justify-between '>
+                                    {
+                                        sugPlace.map(
+                                            (items, key) => {
+                                                return (
+                                                    <button
+                                                        type='button'
+                                                        className='bg-gray-800 px-6 text-center py-2 mt-3 rounded-md outline-none'
+                                                        value={items}
+                                                        key={key}
+                                                        onClick={
+                                                            (event) => setQuery(event.target.value)
+                                                        }
+                                                        onKeyUp={search}
+
+                                                    > {items}
+                                                    </button>
+                                                )
                                             }
-                                        }
-                                    >Rose
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='bg-gray-900 text-center px-8 py-2 rounded-md'
-                                        value='Kerala'
-                                        onClick=
-                                        {
-                                            event => {
-                                                setQuery(event.target.value)
-                                            }
-                                        }
-                                    >Kerala
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='bg-gray-900 text-center px-8 py-2 rounded-md'
-                                        value='Iceland'
-                                        onClick=
-                                        {
-                                            event => {
-                                                setQuery(event.target.value)
-                                            }
-                                        }
-                                    >Iceland
-                                    </button>
+                                        )
+                                    }
                                 </div>
                             </div>
 
