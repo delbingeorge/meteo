@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+.hot {
+    background-image: linear-gradient(to bottom, rgba(20, 17, 17, 0.247), rgba(31, 29, 20, 0.39)),
+        url(https://c4.wallpaperflare.com/wallpaper/534/646/409/nature-sky-clouds-sun-rays-wallpaper-preview.jpg);
+}
+
+.cold {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.438), rgba(0, 0, 0, 0.486)),
+        url(https://c4.wallpaperflare.com/wallpaper/896/36/6/winter-forest-night-wallpaper-preview.jpg);
+}
