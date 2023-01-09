@@ -14,6 +14,7 @@ function Hero() {
     let d = new Date()
     const hours = d.getHours();
     const minutes = d.getMinutes();
+    console.log(minutes)
 
     const [query, setQuery] = useState('')
     const [weather, setWeather] = useState({})
@@ -85,7 +86,6 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-
             </main >
         </div >
     )

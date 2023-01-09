@@ -25,15 +25,15 @@ function Search() {
         <div className={
             (typeof (weather.main) != "undefined") ?
                 (
-                    (weather.main.temp > 16) ? 'hot' : 'app'
-                ) : 'app'
+                    (weather.main.temp > 16) ? 'hot bg-cover block md:hidden' : 'cold bg-cover block md:hidden'
+                ) : 'cold bg-cover block md:hidden'
         }>
             <main className='font-poppy w-full flex flex-col items-center justify-center min-h-screen  text-white'>
                 <div className='py-3 w-full flex items-center flex-col'>
-                    <h1 className='text-4xl font-bold py-8 text-center'>Météo Weather App</h1>
+                    <h1 className='text-3xl font-bold py-4 text-center'>Météo Weather App</h1>
                     <input
                         type='text'
-                        className='bg-white-900 w-5/6 rounded-lg border-2 outline-none border-slate-800 outline- text-3xl text-slate-800 text-center placeholder:text-xl p-2 md:w-2/6'
+                        className='bg-white-900 w-5/6 rounded-lg border-2 outline-none border-slate-800 outline- text-2xl text-slate-800 text-center placeholder:text-xl p-1 md:w-2/6'
                         onChange={e => setQuery(e.target.value)}
                         onKeyDown={search}
                         value={query}
