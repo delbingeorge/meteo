@@ -39,10 +39,11 @@ function Hero() {
                             (weather.main.temp > 16) ?
                                 ('bg-black w-full h-full bg-cover app flex items-end justify-between  hot') :
                                 ('bg-black w-full h-full bg-cover app flex items-end  justify-between cold')
-                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between  hot'}
+                        ) : 'bg-black w-full h-full bg-cover app flex items-end justify-between  default'}
 
                 // className={(weather.weather[0].main == "cloudy") ? ("bg-black w-4/6 h-full bg-cover app flex items-end cloudy") : ("bg-black w-4/6 h-full bg-cover app flex items-end hot")}
                 >
+
                     {
                         (typeof (weather.main) != "undefined") ? (
                             <div className='text-white flex items-end pl-14 pb-14'>
@@ -59,7 +60,16 @@ function Hero() {
                                             ? "https://cdn-icons-png.flaticon.com/512/3208/3208752.png"
                                             : weather.weather[0].main === "Rainy"
                                                 ? "https://cdn-icons-png.flaticon.com/512/2044/2044005.png"
-                                                : ""} />
+                                                : weather.weather[0].main === "Snow"
+                                                    ? "https://cdn-icons-png.flaticon.com/512/2336/2336319.png"
+                                                    : weather.weather[0].main === "Rain" ||
+                                                        weather.weather[0].main === "Shower rain"
+                                                        ? "https://cdn-icons-png.flaticon.com/512/4088/4088981.png"
+                                                        : weather.weather[0].main === "Mist"
+                                                            ? "https://cdn-icons-png.flaticon.com/512/4005/4005817.png"
+                                                            : weather.weather[0].main === "Thunderstorm"
+                                                                ? "https://cdn-icons-png.flaticon.com/512/1959/1959321.png"
+                                                                : ""} />
                                     <h1 className='text-xl text-white'>{weather.weather[0].main}</h1>
                                 </div>
                             </div>
@@ -69,7 +79,12 @@ function Hero() {
                                 {
                                     (weather.message) == "city not found" ?
                                         <h1 className='text-2xl font-bold'>No city found!</h1> :
-                                        <h1>About Me : <a href='https://www.delb.in'>Delbin George</a></h1>}
+                                        <div>
+                                            <h1 className='text-3xl text-white font-bold text-left'>Météo Weather App</h1>
+                                            <h2>Developed by <a href='https://www.delb.in'>Delbin George</a></h2>
+                                            <h3 className='text-sm'>API used <a href='https://openweathermap.org/api'>OpenWeatherMap</a></h3>
+                                        </div>
+                                }
                             </div>
                         )
                     }
