@@ -96,7 +96,7 @@ function Hero() {
                             <h1 className='text-3xl text-white font-bold py-8 text-left'>Météo Weather App</h1>
                             <input
                                 type='text'
-                                className='w-full bg-transparent border-b-2 border-grey-100 capitalize outline-none border-slate-500 outline- text-xl text-gray-300 placeholder:text-xl py-2 placeholder:border-slate-500'
+                                className='w-full bg-transparent border-b-2 border-grey-100 capitalize outline-none border-slate-500 outline- text-xl text-gray-300 placeholder:text-xl py-2 placeholder:border-slate-500 focus:placeholder:translate-y-[30px]'
                                 onChange={e => setQuery(e.target.value)}
                                 onKeyDown={search}
                                 value={query}
