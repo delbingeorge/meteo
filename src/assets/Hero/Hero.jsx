@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import sugPlace from './sugPlace';
+import React, { useState } from 'react'
+import sugPlaceNew from './sugPlace';
 
 const api = {
     key: "38514dd0f5735e941fb56d4a952fd4d4",
@@ -16,6 +16,7 @@ function Hero() {
     const hours = d.getHours();
     const minutes = d.getMinutes();
 
+  
     const [query, setQuery] = useState('')
     const [weather, setWeather] = useState({})
 
@@ -107,7 +108,7 @@ function Hero() {
                                 </h1>
                                 <div className='pt-4 flex flex-wrap justify-between '>
                                     {
-                                        sugPlace.map(
+                                        sugPlaceNew.map(
                                             (items, key) => {
                                                 return (
                                                     <button
@@ -116,6 +117,7 @@ function Hero() {
                                                         value={items}
                                                         key={key}
                                                         onClick={
+
                                                             (event) => setQuery(event.target.value)
                                                         }
                                                         onKeyUp={search}
