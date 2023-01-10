@@ -2,6 +2,10 @@ function shuffle(sugPlace) {
     sugPlace.sort(() => Math.random() - 0.5);
 }
 
+window.setTimeout(() => {
+    location.reload();
+}, 30000);
+
 let sugPlace = [
     "New York",
     "London",
