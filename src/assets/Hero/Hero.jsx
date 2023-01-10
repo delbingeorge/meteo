@@ -129,9 +129,9 @@ function Hero() {
                                         )
                                     }
                                 </div>
-                                <div className='flex items-center mt-8'>
-                                    <img className='w-5' src='https://cdn-icons-png.flaticon.com/512/3249/3249851.png' />
-                                    <p className='text-gray-400 pl-3 text-sm'>press <span className='uppercase font-bold px-1'> Enter </span> to view result.</p>
+                                <div className='flex items-center mt-8 opacity-50'>
+                                    <img className='w-5 icon-info' src='https://cdn-icons-png.flaticon.com/512/3249/3249851.png' />
+                                    <p className='text-gray-100 pl-3 text-sm'>press <span className='uppercase font-bold px-1'> Enter </span> to view result.</p>
                                 </div>
                             </div>
 

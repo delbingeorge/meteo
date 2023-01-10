@@ -4,7 +4,7 @@ function shuffle(sugPlace) {
 
 window.setTimeout(() => {
     location.reload();
-}, 30000);
+}, 60000);
 
 let sugPlace = [
     "New York",
@@ -114,6 +114,42 @@ let sugPlace = [
     "Toledo",
     "St. Paul",
     "Newark",
+    "Mumbai",
+    "Delhi",
+    "Bengaluru",
+    "Kolkata",
+    "Chennai",
+    "Hyderabad",
+    "Ahmedabad",
+    "Pune",
+    "Surat",
+    "Jaipur",
+    "Lucknow",
+    "Kanpur",
+    "Nagpur",
+    "Visakhapatnam",
+    "Thane",
+    "Bhopal",
+    "Ludhiana",
+    "Agra",
+    "Nashik",
+    "Vadodara",
+    "Thiruvananthapuram",
+    "Kochi",
+    "Kozhikode",
+    "Thrissur",
+    "Kollam",
+    "Alappuzha",
+    "Kannur",
+    "Palakkad",
+    "Malappuram",
+    "Kasaragod",
+    "Pathanamthitta",
+    "Idukki",
+    "Ernakulam",
+    "Kottayam",
+    "Wayanad",
+    "Kannur",
 ];
 
 shuffle(sugPlace);
