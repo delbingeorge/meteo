@@ -116,8 +116,8 @@ let sugPlace = [
     "Newark",
 ];
 
-sugPlace = sugPlace.slice(0, 15);
 shuffle(sugPlace);
+sugPlace = sugPlace.slice(0, 16);
 console.log(sugPlace);
 
 export default sugPlace;
