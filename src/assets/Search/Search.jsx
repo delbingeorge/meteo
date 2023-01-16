@@ -25,15 +25,15 @@ function Search() {
         <div className={
             (typeof (weather.main) != "undefined") ?
                 (
-                    (weather.main.temp > 16) ? 'hot bg-cover block md:hidden' : 'cold bg-cover block md:hidden'
-                ) : 'cold bg-cover block md:hidden'
+                    (weather.main.temp > 16) ? 'default bg-cover block md:hidden' : 'default bg-cover block md:hidden'
+                ) : 'default bg-cover block md:hidden px-8'
         }>
             <main className='font-poppy w-full flex flex-col items-center justify-center min-h-screen  text-white'>
                 <div className='py-3 w-full flex items-center flex-col'>
                     <h1 className='text-3xl font-bold py-4 text-center'>Météo Weather App</h1>
                     <input
                         type='text'
-                        className='bg-white-900 w-5/6 rounded-lg border-2 outline-none border-slate-800 outline- text-2xl text-slate-800 text-center placeholder:text-xl p-1 md:w-2/6'
+                        className='bg-transparent border-b-2 border-grey-100 capitalize outline-none border-slate-500 outline- text-xl text-gray-300 placeholder:text-xl py-2 placeholder:border-slate-500 focus:placeholder:translate-y-[30px]'
                         onChange={e => setQuery(e.target.value)}
                         onKeyDown={search}
                         value={query}
@@ -52,10 +52,16 @@ function Search() {
                             {
                                 (weather.message == "city not found") ? (
                                     <h1 className='text-3xl font-bold'>City not found</h1>
-                                ) : ("")
+                                ) : (
+                                    <div className='flex  items-center justify-center flex-col'>
+                                        <h2 className='pt-3'>Developed by <a className='underline' href='https://www.delb.in'>Delbin George</a></h2>
+                                        <h3 className='text-sm'>API used <a className='underline' href='https://openweathermap.org/api'>OpenWeatherMap</a></h3>
+
+                                    </div>)
                             }
                         </div>
                     )}
+
             </main>
         </div>
     )

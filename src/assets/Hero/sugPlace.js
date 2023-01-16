@@ -4,7 +4,7 @@ function shuffle(sugPlace) {
 
 window.setTimeout(() => {
     location.reload();
-}, 60000);
+}, 120000);
 
 let sugPlace = [
     "New York",

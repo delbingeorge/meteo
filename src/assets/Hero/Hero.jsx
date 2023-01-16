@@ -6,7 +6,6 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/",
 }
 
-
 function Hero() {
 
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -30,6 +29,8 @@ function Hero() {
                 })
         }
     }
+
+    console.log(weather)
     return (
         <div className='hidden md:block'>
             <main className='h-screen flex'>
